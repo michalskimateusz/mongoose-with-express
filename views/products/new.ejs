@@ -9,32 +9,41 @@
     <title>New Product</title>
 </head>
 
-<body>
-    <div class="mt-3 ms-3">
-        <div class="card p-3" style="width: 50%">
-            <h1>Add New Product</h1>
-            <div class="mb-3">
-                <form action="/products" method="POST">
-                    <label for="name">Product Name</label>
-                    <input type="text" name="name" placeholder="product name" id="name" class="form-control">
-                    <label for="price">Price (Unit) $</label>
-                    <input type="number" name="price" placeholder="price" id="price" class="form-control">
-                    <label for="category">Select Category</label>
-                    <select name="category" id="category" class="form-select">
-                        <% for(let category of categories){%>
-                            <option value="<%=category%>">
-                                <%=category%>
-                            </option>
-                            <%}%>
-                    </select>
-                    <div class="mt-1">
-                        <button class="btn btn-outline-primary">Add Product</button>
-                    </div>
-                </form>
-            </div>
+<body class="d-flex flex-column">
+    <div class="row">
+        <div class="col-6 offset-3 mt-3">
+            <div class="card px-3 py-3">
+                <h1 class="text-center">Add New Product</h1>
+                <div>
+                    <form action="/products" method="POST">
+                        <div class="mt-3">
+                            <label for="name">Product Name</label>
+                            <input type="text" name="name" placeholder="product name" id="name" class="form-control">
+                        </div>
+                        <div class="mt-3">
+                            <label for="price">Price (Unit) $</label>
+                            <input type="number" name="price" placeholder="price" id="price" class="form-control">
+                        </div>
+                        <div class="mt-3">
+                            <label for="category">Select Category</label>
+                            <select name="category" id="category" class="form-select">
+                                <% for(let category of categories){%>
+                                    <option value="<%=category%>">
+                                        <%=category%>
+                                    </option>
+                                    <%}%>
+                            </select>
+                        </div>
+                        <div class="mt-3">
+                            <button class="btn btn-outline-primary">Add Product</button>
+                        </div>
+                    </form>
+                </div>
 
-            <a href="/products" class="btn btn-outline-primary">Cancel</a>
+                <a href="/products" class="btn btn-outline-primary mt-3">Cancel</a>
+            </div>
         </div>
+
     </div>
 
     </div>

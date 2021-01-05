@@ -11,34 +11,37 @@
     </title>
 </head>
 
-<body>
-    <div class="mt-3 ms-3">
-        <div class="card" style="width: 50%">
-            <div class="card-body">
-                <div>
-                    <h1 class="card-title">
-                        <%= product.name %>
-                    </h1>
+<body class="d-flex flex-column">
+    <div class="row">
+        <div class="col-6 offset-3 mt-3">
+            <div class="card">
+                <div class="card-body">
+                    <div>
+                        <h1 class="card-title text-center">
+                            <%= product.name %>
+                        </h1>
+                    </div>
+                    <div>
+                        <form action="/products/<%=product._id%>?_method=DELETE" method="POST">
+                            <button class="btn btn-primary btn-sm">Delete</button>
+                        </form>
+                    </div>
                 </div>
-                <div>
-                    <form action="/products/<%=product._id%>?_method=DELETE" method="POST">
-                        <button class="btn btn-primary btn-sm">Delete</button>
-                    </form>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">Price: $<%=product.price%>
+                    </li>
+                    <li class="list-group-item">Category: <a href="/products?category=<%=product.category%>">
+                            <%=product.category%>
+                        </a></li>
+                </ul>
+                <div class="btn-group card-body">
+                    <a href="/products" class="btn btn-outline-primary .text-nowrap">Go back</a>
+                    <a href="/products/<%=product._id%>/edit " class="btn btn-outline-primary .text-nowrap">Edit
+                        Product</a>
                 </div>
-            </div>
-            <ul class="list-group list-group-flush">
-                <li class="list-group-item">Price: $<%=product.price%>
-                </li>
-                <li class="list-group-item">Category: <a href="/products?category=<%=product.category%>">
-                        <%=product.category%>
-                    </a></li>
-            </ul>
-            <div class="btn-group card-body">
-                <a href="/products" class="btn btn-outline-primary .text-nowrap">Go back</a>
-                <a href="/products/<%=product._id%>/edit " class="btn btn-outline-primary .text-nowrap">Edit
-                    Product</a>
             </div>
         </div>
+
 </body>
 
 </html>
